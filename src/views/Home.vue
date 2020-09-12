@@ -15,7 +15,7 @@
       </el-radio-group> -->
     <i class="el-icon-s-help" @click="change" style="margin:0 30%"></i>
 
-<el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" unique-opened router>
+<el-menu :default-active=$route.path class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" unique-opened router>
   <el-submenu :index="'/'+m.path" v-for="m in menu.data" :key="m.id">
     <template slot="title">
       <i :class="icons[m.id+'']"></i>

@@ -15,9 +15,21 @@ import {
     MenuItemGroup,
     Submenu,
     RadioButton,
-    RadioGroup
- } from 'element-ui'
+    RadioGroup,
+    Breadcrumb,
+    BreadcrumbItem,
+    Table,
+    TableColumn,
+    Switch,
+    Pagination
 
+ } 
+ from 'element-ui'
+
+Vue.use(Pagination)
+Vue.use(Switch)
+Vue.use(TableColumn)
+Vue.use(Table)
 Vue.use(Button)
 Vue.use(FormItem)
 Vue.use(Form)
@@ -33,5 +45,7 @@ Vue.use(MenuItemGroup)
 Vue.use(Submenu)
 Vue.use(RadioGroup)
 Vue.use(RadioButton)
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
 Vue.prototype.$message=Message
 

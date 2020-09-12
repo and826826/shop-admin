@@ -3,6 +3,13 @@ import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Home from '../views/Home.vue'
 import welcome from '../components/welcome.vue'
+import user from '../components/user/user.vue'
+import formdata from '../components/data/form-data.vue'
+import rolelist from '../components/permisson/role-list.vue'
+import permissonlist from '../components/permisson/permisson-list.vue'
+import goodlist from '../components/goods/goods-list.vue'
+import sortparameter from '../components/goods/sort-parameter.vue'
+import oderlist from '../components/order/order-list.vue'
 
 Vue.use(VueRouter)
 
@@ -25,7 +32,46 @@ Vue.use(VueRouter)
       {
         path:'/welcome',
         component:welcome
+      },
+      {
+        path:'/users',
+        component:user
+      },
+
+      {
+        path:'/roles',
+        component:rolelist
+
+      },
+      {
+        path:'/rights',
+        component:permissonlist
+      },
+      {
+        path:'/goods',
+        component:goodlist
+        
+      },
+      {
+        path:'/params',
+        component:sortparameter
+      },
+     
+      {
+        path:'/categories',
+        component:sortparameter
+
+      },
+      {
+        path:'/orders',
+        component:oderlist
+      },
+      {
+        path:'/reports',
+        component:formdata
       }
+
+
     ]
     
   },
