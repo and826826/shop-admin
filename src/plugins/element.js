@@ -21,11 +21,15 @@ import {
     Table,
     TableColumn,
     Switch,
-    Pagination
+    Pagination,
+    Dialog,
+    MessageBox
 
  } 
  from 'element-ui'
 
+
+Vue.use(Dialog)
 Vue.use(Pagination)
 Vue.use(Switch)
 Vue.use(TableColumn)
@@ -48,4 +52,4 @@ Vue.use(RadioButton)
 Vue.use(Breadcrumb)
 Vue.use(BreadcrumbItem)
 Vue.prototype.$message=Message
-
+Vue.prototype.$confirm=MessageBox
