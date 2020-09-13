@@ -23,12 +23,16 @@ import {
     Switch,
     Pagination,
     Dialog,
-    MessageBox
+    MessageBox,
+    Tag,
+    Col,
+    Row
 
  } 
  from 'element-ui'
-
-
+Vue.use(Row)
+Vue.use(Col)
+Vue.use(Tag)
 Vue.use(Dialog)
 Vue.use(Pagination)
 Vue.use(Switch)

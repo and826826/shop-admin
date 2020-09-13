@@ -72,7 +72,7 @@
   </el-submenu> -->
 </el-menu>
     </el-aside>
-    <el-main>Main
+    <el-main>
       <router-view></router-view>
     </el-main>
   </el-container>
