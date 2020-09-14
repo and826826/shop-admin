@@ -83,7 +83,7 @@
 
           <el-button
           size="mini"
-          @click="handleDelete(scope.$index, scope.row)"><i class="el-icon-setting"></i></el-button>
+          @click="handleConfig(scope.row)"><i class="el-icon-setting"></i></el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -121,6 +121,33 @@
   </span>
 </el-dialog>
 
+<el-dialog
+  title="分配角色"
+  :visible.sync="userroleVisible"
+  width="30%"
+>
+<div>
+  <p>当前用户：{{userrole.username}}</p>
+  <p>当前角色：{{userrole.role_name}}</p>
+  <p>分配新角色：  
+    <el-select v-model="role" placeholder="请选择">
+    <el-option
+      v-for="item in roles"
+      :key="item.id"
+      :label="item.roleName"
+      :value="item.id">
+    </el-option>
+  </el-select>
+  </p>
+    <span slot="footer" class="dialog-footer">
+    <el-button @click="userroleVisible = false">取 消</el-button>
+    <el-button type="primary" @click="edituserrole()">确 定</el-button>
+  </span>
+
+
+</div>
+</el-dialog>
+
   </template>
 </div>
 </template>
@@ -140,6 +167,10 @@ export default {
         total:0,
         dialogVisible: false,
         editVisible:false,
+        userroleVisible:false,
+        userrole:{},
+        role:'',
+        roles:{},
         editform:{
         },
         user:{
@@ -270,8 +301,39 @@ export default {
         }
       )
 
+    },
+    async getuserroles(){
+      const {data:d}=await this.$http.get('roles');
+      if(d.meta.status!=200){
+        return this.$message.error('获取角色失败')
+      }
+      this.roles=d.data;
+      console.log(this.roles)
+
+    },
+    handleConfig(item){
+      this.userrole=item;
+      this.getuserroles();
+      this.userroleVisible=true;
+
+    },
+    async edituserrole(){
+      console.log(this.role);
+      if(!this.role){
+        return this.$message.error('修改角色失败')
+      }
+      const {data:d}=await this.$http.put(`users/${this.userrole.id}/role`,{rid:this.role});
+      console.log(d)
+      if(d.meta.status!=200){
+        return this.$message.error('修改角色失败')
+      }
+      this.$message.success('修改角色成功')
+      this.userroleVisible=false;
+      this.getuserlist();
+
     }
     },
+
     
 }
 </script>
