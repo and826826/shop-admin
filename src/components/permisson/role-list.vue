@@ -1,5 +1,6 @@
 <template>
 <div>
+  <el-button type="primary">添加角色</el-button>
     <el-table
     :data="tableData"
     border
