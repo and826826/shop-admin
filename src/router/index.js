@@ -11,6 +11,7 @@ import goodlist from '../components/goods/goods-list.vue'
 import sortparameter from '../components/goods/sort-parameter.vue'
 import oderlist from '../components/order/order-list.vue'
 import goodssort from '../components/goods/goods-sort.vue'
+import add from '../components/goods/add.vue'
 
 Vue.use(VueRouter)
 
@@ -70,6 +71,10 @@ Vue.use(VueRouter)
       {
         path:'/reports',
         component:formdata
+      },
+      {
+        path:'/goods/add',
+        component:add
       }
 
 
